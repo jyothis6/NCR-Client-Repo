@@ -303,3 +303,16 @@ padding-left: 115px!important;
     border: 1px solid #DDE3E1;
     padding-bottom: 4px;
 }
+
+.dialog-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+
+  button {
+    min-width: 80px;
+    font-weight: 500;
+  }
+}
+

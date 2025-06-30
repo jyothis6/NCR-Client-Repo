@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-mini-sidebar',
@@ -9,6 +9,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class MiniSidebarComponent {
   @Output() expandSidebar = new EventEmitter<void>();
+  @Input() isSidebarVisible: boolean = true;
+
 
   onMenuClick(menuName: string) {
     if (menuName === 'Modules') {

@@ -133,17 +133,6 @@
             ></i>
           </ng-template>
         </kendo-grid-column>
-        <!-- <kendo-grid-column field="imputationCode" title="Imputation Code">
-          <ng-template kendoGridHeaderTemplate>
-            <i class="fas fa-grip-vertical drag-handle"></i>
-            Imputation Code
-            <i
-              class="fa-solid fa-ellipsis-vertical three-dots-icon"
-              style="color: #b6b0b0; padding-left: 10px;"
-              (click)="openFilterPopup('imputationCode', $event)"
-            ></i>
-          </ng-template>
-        </kendo-grid-column> -->
         <kendo-grid-excel fileName="{{ selectedMonth() }}.xlsx"></kendo-grid-excel>
       </kendo-grid>
 
@@ -197,10 +186,14 @@
   <h4 style="margin: 30px; text-align: center;">Do you want to export  <span style="color: rgb(172, 14, 14);">"{{ selectedMonth() }}"</span> Excel?</h4>
 
   <div class="confirm-dialog">
-    <kendo-buttongroup selection="single" width="100%">
+    <!-- <kendo-buttongroup selection="single" width="100%">
       <button kendoButton (click)="onDialogClose(false)" style="color: rgb(32, 32, 32);">No</button>
       <button kendoButton (click)="onDialogClose(true)" style="background-color:#008060;color: rgb(32, 32, 32);">Yes</button>
-    </kendo-buttongroup>
+    </kendo-buttongroup> -->
+    <div class="dialog-button-group">
+      <button kendoButton (click)="onDialogClose(false)" style="color: rgb(32, 32, 32);">No</button>
+      <button kendoButton (click)="onDialogClose(true)" style="background-color:#008060; color: white">Yes</button>
+    </div>
   </div>
 </kendo-dialog>
 </div>

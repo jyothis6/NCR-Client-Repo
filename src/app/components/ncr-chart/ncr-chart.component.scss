@@ -308,3 +308,15 @@ padding-left: 115px!important;
 .excel-btn.sidebar-collapsed {
   margin-left: 376px;
 }
+
+.dialog-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+
+  button {
+    min-width: 80px;
+    font-weight: 500;
+  }
+}

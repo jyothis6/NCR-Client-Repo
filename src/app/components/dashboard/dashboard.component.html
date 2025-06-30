@@ -2,7 +2,7 @@
 <div class="dashboard-container">
 
   <ng-container *ngIf="isMiniSidebarVisible">
-    <app-mini-sidebar (expandSidebar)="expandSidebarFromMini()"></app-mini-sidebar>
+    <app-mini-sidebar (expandSidebar)="expandSidebarFromMini()" [isSidebarVisible]="isSidebarVisible"></app-mini-sidebar>
   </ng-container>
   <div class="sidebar-divider" *ngIf="isMiniSidebarVisible"></div>
   <app-sidebar *ngIf="isSidebarVisible" #sidebarRef (checkedParentsChange)="onCheckedParentsUpdate($event)"

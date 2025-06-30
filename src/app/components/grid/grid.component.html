@@ -141,11 +141,17 @@
     <h4 style="margin: 30px; text-align: center;">Do you want to export to Excel?</h4>
 
     <div class="confirm-dialog">
-      <kendo-buttongroup selection="single" width="100%">
+      <!-- <kendo-buttongroup selection="single" width="100%">
         <button kendoButton (click)="onDialogClose(false)" style="color: rgb(32, 32, 32);">No</button>
         <button kendoButton (click)="onDialogClose(true)"
           style="background-color:#008060;color: white">Yes</button>
-      </kendo-buttongroup>
+      </kendo-buttongroup> -->
+
+      <div class="dialog-button-group">
+        <button kendoButton (click)="onDialogClose(false)" style="color: rgb(32, 32, 32);">No</button>
+        <button kendoButton (click)="onDialogClose(true)" style="background-color:#008060; color: white">Yes</button>
+      </div>
+
     </div>
   </kendo-dialog>
 </div>

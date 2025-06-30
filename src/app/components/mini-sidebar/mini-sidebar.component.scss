@@ -54,8 +54,8 @@
 .icon-wrapper {
   position: relative;
   margin: 10px 0;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 33px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,4 +87,21 @@
   &:hover i {
     color: #083c2f;
   }
+}
+
+
+
+.icon-wrapper:first-of-type::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  width: 60px;
+  height: 1px;
+  background-color: #b9b4b4;
+  transition: opacity 0.2s ease;
+}
+
+.mini-sidebar.collapsed .icon-wrapper:first-of-type::after {
+  opacity: 0; // hide the border
 }
