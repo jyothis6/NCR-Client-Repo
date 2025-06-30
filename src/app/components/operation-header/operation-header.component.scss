@@ -1,0 +1,132 @@
+.operation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px 15px 24px;
+  background-color: #f9f9f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.upload {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0px!important;
+
+  .date {
+    color: #65b997;
+    font-weight: 500;
+  }
+}
+
+.label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-right: 4px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+// .gauge-wrapper {
+//   width: 40px;
+//   height: 40px;
+
+//   ::ng-deep kendo-circulargauge {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
+
+// .gauge-text {
+//   font-size: 12px;
+//   font-weight: bold;
+//   text-align: center;
+// }
+
+
+.progress-circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #065f46;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  stroke: #e5e7eb;
+}
+
+.progress-ring-value {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(0.25turn);
+  transform-origin: center;
+}
+
+
+
+
+
+
+.btn {
+  background-color: #007a5e;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.kaizen-link {
+  display: flex;
+  align-items: center;
+  height: 32px;
+
+  .kaizen-btn {
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: #d1d5db;
+  margin: 0 8px;
+}
+
+

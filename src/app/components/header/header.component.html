@@ -1,0 +1,66 @@
+<header class="app-header">
+  <div class="left-section">
+    <div class="hamburger" (click)="toggleMiniSidebar()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <img src="assets/dashboard_logo.png" alt="IEP Logo" class="logo" />
+    <div class="title">
+      <h5><span style="font-weight: 600;">| </span><span style="padding: 7px;">OTR</span></h5>
+    </div>
+  </div>
+
+  <div class="right-section">
+    <a href="#" class="header-link">My Request</a>
+    <a href="#" class="header-link">Support ticket</a>
+
+    <div class="icon-group">
+      <i class="fa-regular fa-message" title="Messages"></i>
+      <i class="fa-regular fa-question-circle icon" title="Help"></i>
+      <i class="fa-regular fa-bell icon" title="Notifications"></i>
+    </div>
+
+    <!-- Profile trigger with popup anchor -->
+    <div class="user-info"
+         #popupAnchor
+         (click)="toggleDropdown()"
+         (mouseenter)="isHoveringTrigger = true"
+         (mouseleave)="onMouseLeaveTrigger()">
+      <img src="assets/images/userProfile.png" class="profile-img" alt="Profile" />
+      <div class="user-details">
+        <!-- <span class="name">{{ userName }}</span> -->
+      </div>
+      <span class="arrow">&#x25BE;</span>
+    </div>
+  </div>
+</header>
+
+<!-- Kendo Popup Template -->
+<ng-template #popupTemplate>
+  <div class="kendo-profile-popup"
+       (mouseenter)="isHoveringPopup = true"
+       (mouseleave)="onMouseLeavePopup()">
+    <div class="popup-profile">
+      <img src="assets/images/userProfile.png" class="profile-img-large" />
+      <div class="info-block">
+        <strong>{{ userName }}</strong><br />
+        <span>{{ userEmail }}</span>
+      </div>
+      <hr />
+      <div class="popup-links">
+        <div class="popup-item" (click)="navigateToDashboard()">
+          <div class="left">
+            <img src="assets/images/users.png" class="popup-icon" />
+            Change Dashboard
+          </div>
+          <i class="fas fa-chevron-right chevron-icon"></i>
+        </div>
+        <div class="popup-item" (click)="logout()">
+          <div class="left">
+            <img src="assets/images/logout.png" class="popup-icon" />
+            Log Out
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

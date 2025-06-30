@@ -1,0 +1,310 @@
+.ncr-panel {
+  padding: 1rem;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 492px;
+
+  &.no-border {
+    border: none;
+  }
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .ncr-title {
+    padding-left: 18px;
+  }
+
+  .k-chart {
+    margin-bottom: 2rem;
+  }
+
+  ::ng-deep .k-grid {
+    font-size: 14px;
+
+    .k-grid-header {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    .k-grid-content {
+      tr:hover {
+        background-color: #f9f9f9;
+      }
+    }
+
+    .k-pager {
+      border-top: 1px solid #ddd;
+      margin-top: 10px;
+      padding-top: 5px;
+      justify-content: flex-end;
+    }
+  }
+}
+
+::ng-deep .k-chart-category-axis text {
+  text-anchor: middle;
+}
+
+.chart-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: -2rem;
+  padding-left: 680px;
+
+  button {
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #eaeaea;
+    }
+
+    &.active {
+      background-color: #3b78b4;
+      color: white;
+      font-weight: bold;
+      border-color: #3b78b4;
+    }
+
+    &:disabled {
+      background-color: #f5f5f5;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 0 24px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+
+  h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 532px;
+}
+
+.excel-btn,
+.expand-icon,
+.settings-icon,
+.close-button {
+  margin: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.excel-icon {
+  width: 17px;
+  height: auto;
+  padding-top: 5px;
+}
+
+.expand-icon,
+.settings-icon {
+  font-size: 16px;
+  color: #928e8e;
+  transition: color 0.2s ease;
+}
+
+.expand-icon:hover,
+.settings-icon:hover,
+.excel-icon:hover {
+  color: black;
+}
+
+.close-button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+/* Filter Popup Styling */
+.filter-popup {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  max-height: 250px;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.clear-filter-link {
+  font-size: 12px;
+  color:rgb(16, 185, 129);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.popup-search-box {
+  position: relative;
+  margin-bottom: 8px;
+
+  input {
+    width: 80%;
+    padding: 6px 10px 6px 30px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .filtersearch-icon {
+    position: absolute;
+    top: 8px;
+    right: 28px;
+    color: #666;
+    font-size: 13px;
+  }
+}
+
+.popup-options {
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+  }
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+
+  .apply-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+    border: none;
+    border-radius: 20px;
+    background-color: #12ba90;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #008060;
+    }
+  }
+}
+
+.drag-handle {
+  cursor: move;
+  margin-right: 6px;
+  font-size: 13px;
+  color: #b4b1b1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.three-dots-icon {
+  cursor: pointer;
+  font-size: 14px;
+  color: #6a6767 !important;
+  // padding-left: 40px !important;
+}
+
+/* Font cleanup */
+:host {
+  font-family: 'Inter', sans-serif;
+}
+
+:host,
+.filter-panel,
+.toolbar-container,
+.popup-options,
+.popup-search-box,
+.apply-btn,
+.k-grid,
+.k-grid-header,
+.k-grid-content,
+.k-button,
+input,
+button {
+  font-family: 'Inter', sans-serif !important;
+}
+
+::ng-deep.k-chart, .k-stockchart {
+  display: block;
+  height: 325px;
+}
+
+::ng-deep .filter-popup.k-popup {
+  padding: 8px !important;
+}
+
+
+::ng-deep.popup-options input[type="checkbox"] {
+  accent-color: #008060;
+}
+.confirm-dialog {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+::ng-deep.k-dialog-primary .k-dialog-titlebar {
+  color: white;
+  background-color: #008060 !important;
+}
+
+::ng-deep.k-dialog-primary .k-dialog-titlebar {
+padding-left: 115px!important;
+}
+
+.excel-btn.sidebar-collapsed {
+  margin-left: 376px;
+}

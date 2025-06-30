@@ -1,0 +1,142 @@
+<div class="filter-panel" [class.collapsed]="!expanded()">
+  <div class="filter-header">
+    <h3 class="title">Filter Activities</h3>
+    <div class="filter-actions">
+      <button class="clear-filter" (click)="clearFilters()">Clear Filter</button>
+      <span #menuButton class="fa-solid fa-ellipsis" (click)="toggleMenu()" style="cursor: pointer;" ></span>
+      <kendo-popup
+        *ngIf="menuOpen()"
+         #popupRef
+        [anchor]="menuButton"
+        popupClass="activity_more_option_popup"
+        [collision]="{ horizontal: 'fit', vertical: 'flip' }"
+        [offset]="{ left: 0, top: 10 }"
+        (mouseleave)="onPopupMouseLeave()"
+      >
+  <kendo-menu
+        [items]="menuItems"
+        [vertical]="true"
+        class="activity-popup-menu-top"
+        (select)="onMenuSelect($event)"
+      >
+        <ng-template kendoMenuItemTemplate let-item="item">
+          <span class="menu-item">
+            <img
+              *ngIf="item.text === 'Save Filter'"
+              src="assets/images/save-secondary.svg"
+              class="menu-icon" style="width: 15px; height: 15px"
+            />
+            <img
+              *ngIf="item.text === 'Load Filter'"
+              src="assets/images/bars-filter.svg"
+              class="menu-icon" style="width: 15px; height: 15px"
+            />
+            <img
+              *ngIf="item.text === 'Instruction to use'"
+              src="assets/images/question-mark.svg"
+              class="menu-icon" style="width: 15px; height: 15px"
+            />
+           <span style="padding-left: 10px;"> {{ item.text }} </span>
+          </span>
+        </ng-template>
+      </kendo-menu>
+
+      </kendo-popup>
+
+      <button
+        class="toggle-icon"
+        (click)="toggleExpand()"
+        [attr.aria-expanded]="expanded()"
+        aria-label="Toggle filter panel"
+      >
+        <i class="fa-solid" [ngClass]="expanded() ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="expanded()" class="filter-body">
+    <div class="filter-grid">
+      <div class="filter-item">
+        <label>View As</label>
+        <kendo-dropdownlist
+          [data]="viewAsOptions"
+          [(ngModel)]="selectedViewAs"
+          [defaultItem]="'--Select--'"
+          (valueChange)="onViewAsChange()"
+        ></kendo-dropdownlist>
+      </div>
+
+      <div class="filter-item">
+        <label>Type</label>
+        <kendo-dropdownlist
+          [data]="functionOptions"
+          [(ngModel)]="selectedFunction"
+          [defaultItem]="'--Select--'"
+          (valueChange)="onFunctionChange()"
+        ></kendo-dropdownlist>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<kendo-dialog
+  *ngIf="showSaveDialog"
+  title="Save Filter"
+  [minWidth]="420"
+  [width]="450"
+  (close)="showSaveDialog = false"
+>
+  <div class="save-filter-form">
+    <label for="filterName" class="label">
+      Filter Name <span style="color: red">*</span>
+    </label>
+    <input
+      id="filterName"
+      [(ngModel)]="newFilterName"
+      type="text"
+      class="k-textbox"
+      placeholder="Enter name"
+      required
+      style="width: 100%; margin-bottom: 16px;"
+    />
+
+  </div>
+
+  <kendo-dialog-actions>
+    <button kendoButton (click)="showSaveDialog = false">Cancel</button>
+    <button
+      kendoButton
+      [primary]="true"
+      (click)="saveFilter()"
+      [disabled]="!newFilterName.trim()"
+    >
+      Save
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+
+<kendo-dialog
+  *ngIf="showInstructionDialog"
+  title="Instructions to Use Filters"
+  [minWidth]="450"
+  [width]="500"
+  (close)="showInstructionDialog = false"
+>
+  <div class="instruction-popup-content">
+    <ul>
+      <li>You can apply filters using the dropdowns above.</li>
+      <li>To save a filter, click the ellipsis (…) and choose "Save Filter".</li>
+      <li>You can reload saved filters via the "Load Filter" option.</li>
+      <li>Click "Clear Filter" to remove all applied filters.</li>
+    </ul>
+  </div>
+
+  <kendo-dialog-actions>
+    <div class="center-ok-button">
+    <button kendoButton (click)="showInstructionDialog = false" class="ok-btn" style=" background-color: #008060;color:white;">OK</button>
+  </div>
+  </kendo-dialog-actions>
+</kendo-dialog>
+

@@ -1,0 +1,37 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo-container">
+      <img src="assets/Logo.png" alt="IEP Logo" class="logo" />
+    </div>
+
+    <h2>Sign in</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>SSO ID<span class="required">*</span></label>
+        <input formControlName="ssoid" type="email" placeholder="Example@bakerhughes.com" />
+        <div class="error" *ngIf="f.ssoid.touched && f.ssoid.invalid">
+          <small *ngIf="f.ssoid.errors?.['required']">SSO ID is required</small>
+          <small *ngIf="f.ssoid.errors?.['email']">Enter a valid email</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Password<span class="required">*</span></label>
+        <input formControlName="password" type="password" placeholder="Password" />
+        <div class="error" *ngIf="f.password.touched && f.password.invalid">
+          <small *ngIf="f.password.errors?.['required']">Password is required</small>
+          <small *ngIf="f.password.errors?.['minlength']">Min 6 characters</small>
+          <small *ngIf="f.password.errors?.['maxlength']">Max 20 characters</small>
+        </div>
+      </div>
+
+      <div class="form-group checkbox">
+        <input type="checkbox" formControlName="rememberMe" />
+        <label>Remember me</label>
+      </div>
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+</div>

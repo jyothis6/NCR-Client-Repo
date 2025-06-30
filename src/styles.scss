@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+.k-notification.k-notification-base {
+  display: none !important;
+}
+.k-grid .k-grid-header .k-cell-inner > .k-link > .k-sort-icon .k-icon {
+  color: rgb(6, 20, 27);
+}
+
+// .k-grid-toolbar{
+//   background-color: white ;
+//   height: 50px;
+
+// }
+
+
+
+/* Apply a default gray bottom border to all tab items */
+// ::ng-deep .k-tabstrip-items-wrapper {
+//   border-bottom: 2px solid #DDE3E1 !important;
+// }
+
+
+
+// ::ng-deep .k-tabstrip-top > .k-tabstrip-items-wrapper {
+//   border-bottom: 2px solid #18d798 !important;
+// }
+
+// ::ng-deep .k-tabstrip-items-wrapper .k-item {
+//   background-color: transparent !important;
+//   border: none !important;
+//   box-shadow: none !important;
+//   color: #6C6C6C;
+// }
+
+// ::ng-deep .k-tabstrip-items-wrapper .k-item.k-active,
+// ::ng-deep .k-tabstrip-items-wrapper .k-item.k-selected {
+//   color: black !important;
+// }
+
+
+
+// ::ng-deep .k-tabstrip-items-wrapper .k-item.k-active::after,
+// ::ng-deep .k-tabstrip-items-wrapper .k-item.k-selected::after {
+//   content: '';
+//   position: absolute !important;
+//   left: 0 !important;
+//   bottom: 0px !important;
+//   height: 2px !important;
+//   width: 100% !important;
+//   background-color: #02A783 !important;
+// }
+
+
+::ng-deep .k-checkbox:checked, .k-checkbox.k-checked {
+  border-color: #16b57d !important;
+  background-color: #16b57d !important;
+}

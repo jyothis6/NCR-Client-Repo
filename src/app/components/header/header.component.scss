@@ -1,0 +1,165 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #053b2e;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  height: 50px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 0.75rem;
+  padding-left: 30px;
+}
+
+.title h5 {
+  font-size: 1.25rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.title span {
+  font-size: 0.75rem;
+  color: #d1d5db;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-link {
+  color: #d7d1d1;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: 20px;
+}
+
+.icon {
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #cccccc;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.arrow {
+  font-size: 14px;
+}
+
+.kendo-profile-popup {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  color: #333;
+
+  .popup-profile {
+    text-align: center;
+
+    .profile-img-large {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-block {
+      font-size: 14px;
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 10px 0;
+    }
+
+    .popup-links {
+      display: flex;
+      flex-direction: column;
+
+      .popup-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        border-bottom: 1px solid #e0e0e0;
+        transition: background 0.3s;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+
+        .left {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .popup-icon {
+          width: 18px;
+          height: 18px;
+          border-radius: 3px;
+        }
+
+        .chevron-icon {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+  }
+}

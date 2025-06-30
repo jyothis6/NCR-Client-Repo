@@ -1,0 +1,91 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.required {
+  color: red;
+}
+
+input[type="email"],
+input[type="password"],
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #ccc;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.checkbox label {
+  margin-left: 8px;
+}
+
+.login-btn {
+  background-color: #17795e;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background-color: #145f4c;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}

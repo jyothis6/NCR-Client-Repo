@@ -1,0 +1,33 @@
+
+
+.dashboard-container {
+  display: flex;
+  overflow: hidden;
+}
+.dashboard-content {
+  flex: 1;
+  padding: 1px 20px 20px 0px;
+  height: 100vh !important;
+  width: 100vh;
+}
+.sidebar-divider {
+  width: 2px;
+  height: 100vh;
+}
+
+
+.access-denied {
+  text-align: center;
+  margin-top: 100px;
+  color: #c0392b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.access-denied h2 {
+  font-size: 28px;
+}
+
+.access-denied p {
+  font-size: 18px;
+}
+

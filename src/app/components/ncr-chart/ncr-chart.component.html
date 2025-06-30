@@ -1,0 +1,206 @@
+<div class="ncr-panel" [ngClass]="{ 'no-border': showTableView() }">
+  <ng-container *ngIf="!showTableView(); else tableView">
+    <h3><b class="ncr-title">NCR</b></h3>
+    <kendo-chart
+      [categoryAxis]="{ categories: chartCategories() }"
+      (seriesClick)="onSeriesClick($event)">
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          type="column"
+          [data]="chartCounts()"
+          [color]="'#3b78b4'"
+          [gap]="2"
+          [spacing]="0.1"
+        ></kendo-chart-series-item>
+      </kendo-chart-series>
+
+      <kendo-chart-value-axis>
+        <kendo-chart-value-axis-item
+          [title]="{ text: 'NCR Count' }"
+        ></kendo-chart-value-axis-item>
+      </kendo-chart-value-axis>
+    </kendo-chart>
+    <div class="chart-pagination">
+      <button (click)="onFirst()" [disabled]="skip() === 0">««</button>
+      <button (click)="onPrev()" [disabled]="skip() === 0">«</button>
+
+      <button
+        *ngFor="let page of pages()"
+        [ngClass]="{ active: currentPage() === page }"
+        (click)="onPageClick(page)">
+        {{ page }}
+      </button>
+
+      <button (click)="onNext()" [disabled]="skip() + pageSize >= chartData().length">»</button>
+      <button (click)="onLast()" [disabled]="skip() + pageSize >= chartData().length">»»</button>
+    </div>
+
+
+  </ng-container>
+
+  <ng-template #tableView>
+
+
+
+      <kendo-grid
+        #grid
+        [kendoGridBinding]="filteredData()"
+        [sortable]="true"
+        [reorderable]="true"
+        [skip]="0"
+        [sortable]="true"
+      >
+      <ng-template kendoGridToolbarTemplate>
+        <div class="toolbar-container">
+          <div class="left-section">
+            <h4>Tabular View {{ selectedMonth() }}</h4>
+          </div>
+          <div class="right-section">
+              <!-- <button kendoGridExcelCommand class="excel-btn" title="Export to Excel"> -->
+              <button  class="excel-btn" title="Export to Excel" (click)="openExportDialog()" [class.sidebar-collapsed]="isCollapsed">
+
+                <img src="assets/excel.png" alt="Export Excel" class="excel-icon" />
+              </button>
+
+              <i class="fa-solid fa-expand expand-icon" title="Expand Grid" (click)="onExpandClick()"></i>
+
+              <i class="fas fa-cog settings-icon" title="Settings"></i>
+              <!-- <button  class="settings-icon" title="Settings">
+
+                <img src="assets/images/settings.svg" alt="Settings" />
+              </button> -->
+              <button class="close-button" (click)="closeTableView()" title="Close">
+                ✖ </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <kendo-grid-column field="ncrNumber" title="NCR Number">
+          <ng-template kendoGridHeaderTemplate>
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            NCR Number
+            <i
+              class="fa-solid fa-ellipsis-vertical three-dots-icon"
+              style="color: #b6b0b0; padding-left: 23px;"
+              (click)="openFilterPopup('ncrNumber', $event)"
+            ></i>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column field="partId" title="Part ID" >
+          <ng-template kendoGridHeaderTemplate>
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            Part ID
+            <i
+              class="fa-solid fa-ellipsis-vertical three-dots-icon"
+              style="color: #b6b0b0; padding-left: 55px;"
+              (click)="openFilterPopup('partId', $event)"
+            ></i>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column field="productDesc" title="Product Description" >
+          <ng-template kendoGridHeaderTemplate>
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            Product Description
+            <i
+              class="fa-solid fa-ellipsis-vertical three-dots-icon"
+              style="color: #b6b0b0; padding-left: 10px;"
+              (click)="openFilterPopup('productDesc', $event)"
+            ></i>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="partNo" title="Part No" >
+          <ng-template kendoGridHeaderTemplate>
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            Part No
+            <i
+              class="fa-solid fa-ellipsis-vertical three-dots-icon"
+              style="color: #b6b0b0; padding-left: 20px;"
+              (click)="openFilterPopup('partNo', $event)"
+            ></i>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column field="ncrArea" title="NCR Area">
+          <ng-template kendoGridHeaderTemplate>
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            NCR Area
+            <i
+              class="fa-solid fa-ellipsis-vertical three-dots-icon"
+              style="color: #b6b0b0; padding-left: 40px;"
+              (click)="openFilterPopup('ncrArea', $event)"
+            ></i>
+          </ng-template>
+        </kendo-grid-column>
+        <!-- <kendo-grid-column field="imputationCode" title="Imputation Code">
+          <ng-template kendoGridHeaderTemplate>
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            Imputation Code
+            <i
+              class="fa-solid fa-ellipsis-vertical three-dots-icon"
+              style="color: #b6b0b0; padding-left: 10px;"
+              (click)="openFilterPopup('imputationCode', $event)"
+            ></i>
+          </ng-template>
+        </kendo-grid-column> -->
+        <kendo-grid-excel fileName="{{ selectedMonth() }}.xlsx"></kendo-grid-excel>
+      </kendo-grid>
+
+      <kendo-popup
+  *ngIf="filterPopupVisible && filterAnchor"
+  [anchor]="filterAnchor"
+  [popupClass]="'filter-popup'"
+  [offset]="{ left: 0, top: 6 }"
+  (close)="closeFilterPopup()"
+>
+  <div tabindex="0" (click)="$event.stopPropagation()">
+    <div class="popup-header">
+      <a class="clear-filter-link" (click)="clearColumnFilter()">Clear Filter</a>
+      <span class="close-button" (click)="closeFilterPopup()">&times;</span>
+    </div>
+
+    <div class="popup-search-box">
+      <i class="fas fa-search filtersearch-icon"></i>
+      <input type="text" [(ngModel)]="filterSearch" placeholder="Search..." />
+    </div>
+
+    <div class="popup-options">
+      <label *ngFor="let option of getFilteredPopupOptions()">
+        <input
+          type="checkbox"
+          [checked]="columnFilters[activeFilterColumn!].has(option)"
+          (change)="toggleFilterSelection(option)"
+        />
+        {{ option }}
+      </label>
+    </div>
+
+    <div class="popup-buttons">
+      <button class="apply-btn" (click)="applyColumnFilter()">OK</button>
+    </div>
+  </div>
+</kendo-popup>
+
+  </ng-template>
+
+
+
+
+  <kendo-dialog *ngIf="showExportDialog"
+  title="Export Confirmation"
+  (close)="onDialogClose(false)"
+  [minWidth]="300"
+  [width]="420"
+  [themeColor]="dialogThemeColor"
+>
+  <h4 style="margin: 30px; text-align: center;">Do you want to export  <span style="color: rgb(172, 14, 14);">"{{ selectedMonth() }}"</span> Excel?</h4>
+
+  <div class="confirm-dialog">
+    <kendo-buttongroup selection="single" width="100%">
+      <button kendoButton (click)="onDialogClose(false)" style="color: rgb(32, 32, 32);">No</button>
+      <button kendoButton (click)="onDialogClose(true)" style="background-color:#008060;color: rgb(32, 32, 32);">Yes</button>
+    </kendo-buttongroup>
+  </div>
+</kendo-dialog>
+</div>

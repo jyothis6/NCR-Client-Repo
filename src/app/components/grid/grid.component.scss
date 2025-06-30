@@ -1,0 +1,305 @@
+/* Grid and toolbar layout */
+.grid-wrapper {
+  position: relative;
+}
+
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.left-section {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.left-section .title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.left-section .count {
+  font-size: 14px;
+  color: #777;
+  margin-left: 12px;
+}
+
+.right-section {
+  padding-left: 555px;
+}
+
+.search-container {
+  position: relative;
+  right: -70px;
+}
+
+.search-container input {
+  padding: 6px 30px 6px 10px;
+  font-size: 14px;
+  width: 155px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.search-container i {
+  position: absolute;
+  right: -80px;
+  top: 8px;
+  color: #666;
+}
+
+/* Outside Search Box */
+.search-container-outside {
+  position: absolute;
+  top: 10px;
+  right: 163px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.search-container-outside .search-box {
+  padding: 6px 30px 6px 10px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.search-container-outside .search-icon {
+  position: absolute;
+  left: 200px;
+  pointer-events: none;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Grid Header Icons */
+.drag-handle {
+  cursor: move;
+  margin-right: 6px;
+  font-size: 13px;
+  color: #b4b1b1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.three-dots-icon {
+  cursor: pointer;
+  font-size: 14px;
+  color: #6a6767 !important;
+  padding-left: 35px !important;
+}
+
+/* Excel Export */
+.excel-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 18px;
+  cursor: pointer;
+}
+
+.excel-icon {
+  width: 17px;
+  cursor: pointer;
+  margin-right: -10px;
+  margin-bottom: -4px;
+  height: auto;
+  padding-top: 7px;
+}
+
+/* Header action icons */
+.expand-icon {
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding-right: 35px;
+}
+
+.settings-icon {
+  font-size: 16px;
+  color: #928e8e;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.expand-icon:hover,
+.settings-icon:hover,
+.excel-icon:hover {
+  color: black;
+}
+
+/* Kendo Popup Filter Styling */
+.filter-popup {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  max-height: 250px;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+/* Popup Header */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.clear-filter-link {
+  font-size: 12px;
+  color:rgb(16, 185, 129);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.close-button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+/* Popup Search */
+.popup-search-box {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.popup-search-box input {
+  width: 80%;
+  padding: 6px 10px 6px 30px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.filtersearch-icon {
+  position: absolute;
+  top: 8px;
+  right: 28px;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Popup Options List */
+.popup-options {
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.popup-options label {
+  display: block;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Popup Buttons */
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.apply-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  border: none;
+  border-radius: 20px;
+  background-color: #12ba90;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.apply-btn:hover {
+  background-color: #008060;
+}
+
+/* Font setup for consistency */
+:host {
+  font-family: 'Inter', sans-serif;
+}
+
+.filter-panel,
+.toolbar-container,
+.popup-options,
+.popup-search-box,
+.apply-btn,
+.k-grid,
+.k-grid-header,
+.k-grid-content,
+.k-button,
+input,
+button {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.count,
+.popup-options label,
+.search-box,
+.popup-search-box input {
+  font-weight: 400;
+}
+
+::ng-deep .filter-popup.k-popup {
+  padding: 8px !important;
+}
+
+
+::ng-deep.popup-options input[type="checkbox"] {
+  accent-color: #008060;
+}
+
+.confirm-dialog {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+::ng-deep.k-dialog-primary .k-dialog-titlebar {
+  color: white;
+  background-color: #008060 !important;
+}
+
+::ng-deep.k-dialog-primary .k-dialog-titlebar {
+padding-left: 115px!important;
+}
+
+.search-container-outside.sidebar-collapsed {
+  right: 140px;
+}
+.excel-btn.sidebar-collapsed {
+  margin-left: 376px;
+}
+
+.grid-pagination {
+
+    padding-left: 855px;
+    padding-top: 4px;
+    border: 1px solid #DDE3E1;
+    padding-bottom: 4px;
+}

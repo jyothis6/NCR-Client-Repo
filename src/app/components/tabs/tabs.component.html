@@ -1,0 +1,97 @@
+<kendo-tabstrip >
+  <kendo-tabstrip-tab title="NCR" [selected]="true">
+    <ng-template kendoTabContent>
+
+      <div class="checked-parents-label" title="{{ getCheckedParentLabels() }}">
+        {{ getCheckedParentLabels(true) }}
+      </div>
+
+      <kendo-notification #notificationContainer></kendo-notification>
+
+      <div *ngIf="showNotification" class="notification-wrapper">
+        <i class="fa-regular fa-bell bell-icon"></i>
+        <span>You have received 3 primary resource re-assignment requests.</span>
+        <a href="#" class="view-requests">View requests</a>
+        <button class="close-btn" (click)="closeNotification()">X</button>
+      </div>
+
+      <app-filter-activities (viewModeChanged)="onViewModeChanged($event)" [initiallyCollapsed]="isFilterCollapsed"
+        (typeChanged)="onTypeChanged($event)"></app-filter-activities>
+
+
+
+      <ng-container *ngIf="viewMode === 'Tabular'">
+        <!-- <app-grid [gridData]="filteredGridData"></app-grid> -->
+        <!-- tabs.component.html -->
+        <app-grid [gridData]="filteredGridData" (expandGridClicked)="collapseSidebarAndFilter.emit()"></app-grid>
+
+      </ng-container>
+
+      <ng-container *ngIf="viewMode === 'Chart'">
+        <app-ncr-chart (expandGridClicked)="collapseSidebarAndFilter.emit()"></app-ncr-chart>
+
+      </ng-container>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="NCM">
+    <ng-template kendoTabContent>
+      <p>NCM Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="ECN">
+    <ng-template kendoTabContent>
+      <p>ECN Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="ECR">
+    <ng-template kendoTabContent>
+      <p>ECR Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="COQ">
+    <ng-template kendoTabContent>
+      <p>COQ Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="CCM">
+    <ng-template kendoTabContent>
+      <p>CCM Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="OTRDR">
+    <ng-template kendoTabContent>
+      <p>OTRDR Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="FMEA">
+    <ng-template kendoTabContent>
+      <p>FMEA Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="RCA-NCA-CAPA">
+    <ng-template kendoTabContent>
+      <p>RCA-NCA-CAPA Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="Product Quality">
+    <ng-template kendoTabContent>
+      <p>Product Quality Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab title="Product Safety">
+    <ng-template kendoTabContent>
+      <p>Product Safety Data Section</p>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+</kendo-tabstrip>

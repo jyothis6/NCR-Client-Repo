@@ -1,0 +1,147 @@
+<div class="sidebar-header">
+  <div class="sidebar-title">Filter Contracts</div>
+
+  <div class="sidebar-actions">
+    <!-- <span
+      class="fa-solid fa-ellipsis"
+      style="cursor: pointer; margin-right: 12px;"
+    ></span> -->
+<!-- Main Ellipsis Trigger -->
+<span
+  class="fa-solid fa-ellipsis"
+  #sidebarMenuButton
+  (click)="toggleSidebarMenu()"
+  style="cursor: pointer; margin-right: 12px;"
+></span>
+
+<!-- <kendo-popup
+  *ngIf="showSidebarMenu"
+  [anchor]="sidebarMenuButton"
+  popupClass="sidebar-menu-popup"
+  [popupAlign]="{ horizontal: 'left', vertical: 'bottom' }"
+  [anchorAlign]="{ horizontal: 'left', vertical: 'top' }"
+>
+  <kendo-menu
+    [items]="sidebarMenuItems"
+    (select)="onSidebarMenuSelect($event)"
+    [vertical]="true"
+    class="sidebar-kendo-menu"
+  ></kendo-menu>
+</kendo-popup> -->
+
+
+    <i class="fas fa-arrow-left" (click)="toggleSidebar()"></i>
+  </div>
+</div>
+
+<div class="sidebar-container" [class.collapsed]="!isExpanded">
+  <div class="contract-tabs">
+    <kendo-button
+      *ngFor="let tab of tabs"
+      (click)="setActiveTab(tab.key)"
+      [ngClass]="{ 'active': tab.key === activeTab }"
+
+    >
+      {{ tab.label }}
+    </kendo-button>
+  </div>
+
+  <div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search job number or contract name..."
+      (input)="onSearch()"
+      class="search-box"
+    />
+  </div>
+
+  <div class="advanced-search-wrapper">
+    <button class="advanced-search-btn" (click)="toggleAdvanceSearch()">
+      <i
+        class="fas"
+        [ngClass]="{ 'fa-chevron-down': showAdvanceSearch, 'fa-chevron-right': !showAdvanceSearch }"
+        style="margin-left: 6px; margin-right: 8px"
+      ></i>
+      Advanced Search
+    </button>
+
+    <div class="advanced-search-container" *ngIf="showAdvanceSearch">
+      <a class="clear-all" (click)="clearAllFilters($event)">Clear All</a>
+
+      <div class="advanced-field" [class.has-value]="selectedDeliveryYears.length > 0">
+        <label>Delivery Year</label>
+        <kendo-multiselect
+          [data]="deliveryYears"
+          [(ngModel)]="selectedDeliveryYears"
+          [valuePrimitive]="true"
+          [autoClose]="false"
+          placeholder="--Select--"
+          [filterable]="true"
+          class="filter-dropdown"
+          (valueChange)="applyFilters()"
+        ></kendo-multiselect>
+      </div>
+
+      <div class="advanced-field" [class.has-value]="selectedRacYears.length > 0">
+        <label>RAC Year</label>
+        <kendo-multiselect
+          [data]="racYears"
+          [(ngModel)]="selectedRacYears"
+          [valuePrimitive]="true"
+          [autoClose]="false"
+          placeholder="--Select--"
+          [filterable]="true"
+          class="filter-dropdown"
+          (valueChange)="applyFilters()"
+        ></kendo-multiselect>
+      </div>
+
+      <div class="advanced-field" [class.has-value]="selectedProjectStatuses.length > 0">
+        <label>Project Status</label>
+        <kendo-multiselect
+          [data]="projectStatuses"
+          [(ngModel)]="selectedProjectStatuses"
+          [valuePrimitive]="true"
+          [autoClose]="false"
+          placeholder="--Select--"
+          [filterable]="true"
+          class="filter-dropdown"
+          (valueChange)="applyFilters()"
+        ></kendo-multiselect>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-count">Result: {{ filteredData.length }} Contracts</div>
+
+  <kendo-treeview
+    [nodes]="filteredData"
+    textField="name"
+    kendoTreeViewExpandable
+    kendoTreeViewCheckable
+    [expandBy]="'id'"
+    [children]="fetchChildren"
+    [hasChildren]="hasChildren"
+    [(checkedKeys)]="checkedKeys"
+    [expandedKeys]="expandedKeys"
+    (expand)="onExpand($event)"
+    (collapse)="onCollapse($event)"
+    (checkedKeysChange)="onCheckChange()"
+    [checkBy]="'id'"
+  >
+    <ng-template kendoTreeViewNodeTemplate let-dataItem let-hasChildren="hasChildren">
+      <div class="tree-node-wrapper">
+        <span class="node-name">{{ dataItem.name }}</span>
+
+        <i
+          *ngIf="isParentNode(dataItem)"
+          class="fas fa-star star-icon"
+          [class.favorited]="isFavorite(dataItem)"
+          (click)="toggleFavorite(dataItem); $event.stopPropagation()"
+        ></i>
+      </div>
+    </ng-template>
+  </kendo-treeview>
+</div>

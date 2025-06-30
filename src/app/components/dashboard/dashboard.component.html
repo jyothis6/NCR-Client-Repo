@@ -1,0 +1,26 @@
+<app-header (toggleSidebar)="toggleMiniSidebar()"></app-header>
+<div class="dashboard-container">
+
+  <ng-container *ngIf="isMiniSidebarVisible">
+    <app-mini-sidebar (expandSidebar)="expandSidebarFromMini()"></app-mini-sidebar>
+  </ng-container>
+  <div class="sidebar-divider" *ngIf="isMiniSidebarVisible"></div>
+  <app-sidebar *ngIf="isSidebarVisible" #sidebarRef (checkedParentsChange)="onCheckedParentsUpdate($event)"
+    (sidebarClosed)="onSidebarClosed()"></app-sidebar>
+
+  <div class="dashboard-content">
+
+    <div *ngIf="userRole !== 'admin'; else adminContent" class="access-denied">
+      <h2>Access Denied</h2>
+      <p>You do not have permission to view this section.</p>
+    </div>
+    <ng-template #adminContent>
+      <div class="actual-dashboard">
+        <app-operation-header></app-operation-header>
+        <app-tabs [checkedParents]="checkedParents" [isFilterCollapsed]="isFilterCollapsed"
+          (collapseSidebarAndFilter)="handleGridExpandCollapse()"></app-tabs>
+
+      </div>
+    </ng-template>
+  </div>
+</div>

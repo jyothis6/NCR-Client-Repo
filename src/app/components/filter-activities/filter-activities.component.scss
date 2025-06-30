@@ -1,0 +1,332 @@
+.filter-panel {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e1e1;
+  margin-bottom: 1rem;
+  padding: 1rem 1.2rem;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    padding-bottom: 0.4rem;
+  }
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -1.2rem 1rem -1.2rem;
+  padding: 0 1.2rem 4px 1.2rem;
+  border-bottom: 1px solid #e1e1e1;
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .filter-panel.collapsed & {
+    border-bottom: none;
+    margin-bottom: 0.3rem;
+    padding-bottom: 2px;
+  }
+}
+
+.filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .clear-filter {
+    color: rgb(16, 185, 129);
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  // .fa-ellipsis {
+  //   font-size: 1rem;
+  //   color: #555;
+  //   cursor: pointer;
+  //   margin-right: 4px;
+  // }
+
+  .fa-ellipsis {
+    font-size: 1rem;
+    color: #555;
+    margin-right: 4px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px; // adds space around to form a circle
+    transition: background-color 0.2s;
+
+    &:hover,
+    &:focus {
+      background-color: #e0e0e0; // light grey background on hover/focus
+    }
+
+    &:active {
+      background-color: #d5d5d5; // slightly darker when clicked
+    }
+  }
+
+
+  .toggle-icon {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+
+    &:hover {
+      color: #007bff;
+    }
+  }
+}
+
+.filter-body {
+  margin-top: 1rem;
+  padding-right: 10px;
+}
+
+.filter-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  max-width: 200px;
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #444;
+  }
+}
+
+
+
+::ng-deep .activity-popup-menu-top {
+ .k-menu {
+    width: 260px!important;
+    background-color: #fff!important;
+    border: none!important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12)!important;
+    padding: 0.5rem 0!important;
+  }
+
+.k-menu-item {
+    padding: 6px 14px!important;
+    position: relative!important;
+
+    &:hover {
+      background-color: rgba(16, 185, 129, 0.15)!important;
+    }
+
+    .menu-item {
+      display: flex!important;
+      align-items: center!important;
+      justify-content: space-between!important;
+      width: 55%!important;
+      font-size: 14px!important;
+      font-weight: 500!important;
+      color: #333!important;
+
+      .menu-icon {
+        width: 14px!important;
+        height: 14px!important;
+        object-fit: contain!important;
+        margin-right: 10px!important;
+      }
+
+      .menu-text {
+        flex: 1!important;
+        padding-left: 10px!important;
+      }
+    }
+
+    .k-menu-expand-arrow {
+      position: absolute!important;
+      right: 24px!important;
+    color: #685d5d!important;
+
+    }
+  }
+}
+
+
+// === Save Filter Dialog Style ===
+.save-filter-form {
+  padding: 20px;
+
+  .label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .k-checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 8px;
+    gap: 8px;
+
+    input[type='checkbox'] {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// === Dialog Layout and Button Alignment ===
+::ng-deep .k-dialog {
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+::ng-deep .k-dialog-titlebar {
+  background-color: #f4f6f9;
+  padding: 16px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1a1a1a;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.k-dialog-titlebar .k-window-title {
+  margin-left: 146px;
+}
+
+::ng-deep .k-dialog-actions {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+::ng-deep .k-dialog-actions button {
+  min-width: 80px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+::ng-deep .k-dialog .k-dialog-content {
+  padding: 0 24px 16px 24px;
+}
+
+
+.save-filter-form {
+  padding: 20px;
+
+  .label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+  }
+
+  .k-textbox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .k-checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 8px;
+    margin-top: 12px;
+
+    input[type='checkbox'] {
+      transform: scale(1.2);
+    }
+  }
+}
+
+::ng-deep .k-dialog {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+::ng-deep .k-dialog-titlebar {
+  background-color: #f4f6f9;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+::ng-deep .k-dialog-content {
+  padding: 0 24px 16px 24px;
+}
+
+::ng-deep .k-dialog-actions {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.k-button-solid-primary {
+ border-color: #008060;
+ background-color: #008060;
+}
+
+.instruction-popup-content {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+
+::ng-deep .k-dialog-actions .ok-btn {
+  width: auto !important;
+  // min-width: unset !important;
+  max-width: fit-content !important;
+  padding: 4px 12px !important;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #008060 !important;
+  color: white !important;
+  border: none;
+  border-radius: 4px;
+}
+
+
+.center-ok-button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
