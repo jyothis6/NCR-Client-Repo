@@ -33,6 +33,7 @@ export class SidebarComponent {
   expandedKeys: any[] = [];
 // Advanced Search Fields
 showAdvanceSearch = false;
+allChecked: boolean = false;
 
 deliveryYears: string[] = [];
 racYears: string[] = [];
@@ -385,6 +386,17 @@ toggleSidebar() {
     this.allContracts.forEach(contract => collectFavorites([contract]));
     return flatList;
   }
+
+
+  onSelectAllChange(event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    this.allChecked = isChecked;
+
+    const allNodes = this.flattenTree(this.filteredData);
+    this.checkedKeys = isChecked ? allNodes.map(n => n.id) : [];
+    this.onCheckChange();
+  }
+
 
 
 }

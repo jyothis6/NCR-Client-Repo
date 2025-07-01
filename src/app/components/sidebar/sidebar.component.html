@@ -1,7 +1,7 @@
 <div class="sidebar-header">
   <div class="sidebar-title">Filter Contracts</div>
 
-  <div class="sidebar-actions">
+  <div class="sidebar-actions" style="display: flex; align-items: center;">
     <!-- <span
       class="fa-solid fa-ellipsis"
       style="cursor: pointer; margin-right: 12px;"
@@ -117,6 +117,18 @@
   </div>
 
   <div class="result-count">Result: {{ filteredData.length }} Contracts</div>
+  <div class="select-all-container">
+    <span class="triangle-icon"></span>
+    <input
+      type="checkbox"
+      class="k-checkbox"
+      id="selectAllProjects"
+      [checked]="allChecked"
+      (change)="onSelectAllChange($event)"
+    />
+    <label class="k-checkbox-label" for="selectAllProjects" style="color: #706d6d;">Current Projects</label>
+  </div>
+
 
   <kendo-treeview
     [nodes]="filteredData"

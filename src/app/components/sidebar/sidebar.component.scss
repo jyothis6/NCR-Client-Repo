@@ -458,3 +458,34 @@
       }
     }
   }
+
+  .select-all-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+
+    .triangle-icon {
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 6px solid #444;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .k-checkbox {
+      width: 16px;
+         width: 16px;
+      height: 15px;
+      accent-color: #008060;
+      border-radius: 3px;
+    }
+
+    label.k-checkbox-label {
+      cursor: pointer;
+    }
+  }
