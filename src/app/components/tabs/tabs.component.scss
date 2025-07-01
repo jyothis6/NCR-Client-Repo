@@ -19,7 +19,7 @@ p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 25px;
+  font-size: 19px;
 }
 
 
@@ -46,8 +46,8 @@ p {
 .notification-wrapper .view-requests {
   color: #e24141;
   text-decoration: none;
-  font-weight: 500;
-  padding-right: 395px;
+  font-weight: 600;
+  padding-right: 445px;
 }
 
 .notification-wrapper .close-btn {
@@ -91,4 +91,36 @@ p {
 
 
 
+::ng-deep .k-tabstrip-items-wrapper .k-item {
+  background: none !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  padding: 8px 12px !important;
+  color: #6c6d6d;
+  font-size: 14px;
+  font-weight: 500;
+}
 
+::ng-deep .k-tabstrip-items-wrapper .k-item.k-state-active .k-link {
+  border-bottom: 3px solid #008060 !important; // ✅ GREEN underline
+  color: #000 !important;
+  font-weight: 600 !important;
+  padding-bottom: 6px;
+}
+
+.k-tabstrip-content, .k-tabstrip > .k-content {
+  background-color: #f7f7f7;
+}
+
+
+
+.k-tabstrip-top > .k-tabstrip-items-wrapper {
+  background-color: #f7f7f7!important;
+}
+
+
+::ng-deep .k-tabstrip-top > .k-tabstrip-items-wrapper .k-item:active,
+.k-tabstrip-top > .k-tabstrip-items-wrapper .k-item.k-active {
+
+    border-bottom-color: green !important;
+}

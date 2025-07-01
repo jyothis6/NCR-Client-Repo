@@ -35,6 +35,7 @@
 </div>
 
 <div class="sidebar-container" [class.collapsed]="!isExpanded">
+  <div class="contract-tabs-wrapper">
   <div class="contract-tabs">
     <kendo-button
       *ngFor="let tab of tabs"
@@ -45,6 +46,7 @@
       {{ tab.label }}
     </kendo-button>
   </div>
+</div>
 
   <div class="search-container">
     <i class="fas fa-search search-icon"></i>

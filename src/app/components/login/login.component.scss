@@ -89,3 +89,68 @@ input[type="password"] {
   font-size: 0.875rem;
   margin-top: 4px;
 }
+
+/* Custom green checkbox */
+.custom-checkbox {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.custom-checkbox .checkmark {
+  position: absolute;
+  left: 0;
+  // top: 2px;
+  height: 16px;
+  width: 16px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+
+.custom-checkbox:hover input ~ .checkmark {
+  background-color: #ddd;
+}
+
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #17795e;
+  border-color: #17795e;
+}
+
+/* Show checkmark icon */
+.custom-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Checkmark shape */
+.custom-checkbox .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

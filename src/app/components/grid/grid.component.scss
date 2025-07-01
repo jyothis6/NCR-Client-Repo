@@ -49,7 +49,7 @@
 .search-container i {
   position: absolute;
   right: -80px;
-  top: 8px;
+  top: 2px;
   color: #666;
 }
 
@@ -87,13 +87,15 @@
   color: #b4b1b1;
   display: inline-block;
   vertical-align: middle;
+  padding-right: 10px;
+  margin-left: 20px;
 }
 
 .three-dots-icon {
   cursor: pointer;
   font-size: 14px;
   color: #6a6767 !important;
-  padding-left: 35px !important;
+  padding-left: 29px;
 }
 
 /* Excel Export */
@@ -285,9 +287,9 @@ button {
   background-color: #008060 !important;
 }
 
-::ng-deep.k-dialog-primary .k-dialog-titlebar {
-padding-left: 115px!important;
-}
+// ::ng-deep.k-dialog-primary .k-dialog-titlebar {
+// padding-left: 115px!important;
+// }
 
 .search-container-outside.sidebar-collapsed {
   right: 140px;
@@ -316,3 +318,46 @@ padding-left: 115px!important;
   }
 }
 
+::ng-deep .k-list .k-selected,
+::ng-deep .k-list .k-item.k-state-selected,
+::ng-deep .k-list .k-item.k-state-focused,
+::ng-deep .k-list .k-item:hover {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #000 !important;
+}
+
+.material-symbols-outlined.settings-icon {
+  font-size: 18px;
+  padding-top: 7px;
+  margin-left: 18px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.material-symbols-outlined.settings-icon:hover {
+  color: black;
+}
+
+
+.excel-icon,
+.expand-icon,
+.settings-icon {
+  font-size: 18px;
+  padding-top: 6px;
+  margin-left: 18px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  vertical-align: middle;
+}
+
+.settings-icon {
+  position: relative;
+  top: 2px;
+}
+
+::ng-deep .k-grid-toolbar {
+
+  background-color: white!important;
+}

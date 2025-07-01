@@ -60,16 +60,16 @@
     margin-right: 4px;
     cursor: pointer;
     border-radius: 50%;
-    padding: 6px; // adds space around to form a circle
+    padding: 6px;
     transition: background-color 0.2s;
 
     &:hover,
     &:focus {
-      background-color: #e0e0e0; // light grey background on hover/focus
+      background-color: #e0e0e0;
     }
 
     &:active {
-      background-color: #d5d5d5; // slightly darker when clicked
+      background-color: #d5d5d5;
     }
   }
 
@@ -199,9 +199,9 @@
   }
 }
 
-// === Dialog Layout and Button Alignment ===
+
 ::ng-deep .k-dialog {
-  border-radius: 8px;
+  // border-radius: 8px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
@@ -267,7 +267,6 @@
 }
 
 ::ng-deep .k-dialog {
-  border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 

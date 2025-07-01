@@ -27,7 +27,10 @@
 
 
             <!-- <i class="fas fa-cog settings-icon" title="Settings"></i> -->
-            <i class="fa-solid fa-gear" title="Settings" style="cursor:pointer;padding-top: 1px"></i>
+            <!-- <i class="fa-solid fa-gear" title="Settings" style="cursor:pointer;padding-top: 1px"></i>-->
+            <!-- <span class="icon-wrapper" title="Settings" > -->
+              <i class="material-symbols-outlined settings-icon" style="cursor:pointer;"  title="Settings">settings</i>
+            <!-- </span> -->
           </div>
         </div>
       </div>
@@ -37,7 +40,7 @@
       <ng-template kendoGridHeaderTemplate>
         <i class="fas fa-grip-vertical drag-handle"></i>
         NCR Number
-        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 10px;"
+        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0;"
           (click)="openFilterPopup('ncrNumber', $event)"></i>
       </ng-template>
     </kendo-grid-column>
@@ -46,7 +49,7 @@
       <ng-template kendoGridHeaderTemplate>
         <i class="fas fa-grip-vertical drag-handle"></i>
         Part ID
-        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 10px;"
+        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 50px;"
           (click)="openFilterPopup('partId', $event)"></i>
       </ng-template>
     </kendo-grid-column>
@@ -64,7 +67,7 @@
       <ng-template kendoGridHeaderTemplate>
         <i class="fas fa-grip-vertical drag-handle"></i>
         Part No
-        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 10px;"
+        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 40px;"
           (click)="openFilterPopup('partNo', $event)"></i>
       </ng-template>
     </kendo-grid-column>
@@ -73,7 +76,7 @@
       <ng-template kendoGridHeaderTemplate>
         <i class="fas fa-grip-vertical drag-handle"></i>
         NCR Area
-        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 10px;"
+        <i class="fa-solid fa-ellipsis-vertical three-dots-icon" style="color: #b6b0b0; padding-left: 40px;"
           (click)="openFilterPopup('ncrArea', $event)"></i>
       </ng-template>
     </kendo-grid-column>

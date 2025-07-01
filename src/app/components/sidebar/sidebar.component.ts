@@ -64,6 +64,25 @@ savedFilters = ['Saved Filter 1', 'Saved Filter 2', 'Saved Filter 3'];
 
   activeTab = 'my';
 
+
+  sidebarMenuItems: MenuItem[] = [
+    { text: 'Export Contracts', icon: 'download' },
+    { text: 'Save Filter', icon: 'save' },
+    {
+      text: 'Load Filter',
+      icon: 'filter',
+      items: [
+        { text: 'Saved Filter 1' },
+        { text: 'Saved Filter 2' },
+        { text: 'Saved Filter 3' },
+        { text: 'Saved Filter 4' }
+      ]
+    },
+    { text: 'Instructions to Use', icon: 'question' },
+    { text: 'Last Uploaded Info', icon: 'clock' }
+  ];
+
+
   constructor(private http: HttpClient, private apiService:ApiService) {
     this.loadContracts();
   }
@@ -86,16 +105,16 @@ savedFilters = ['Saved Filter 1', 'Saved Filter 2', 'Saved Filter 3'];
 
 
 
-  sidebarMenuItems: MenuItem[] = [
-    { text: 'Export Contracts', icon: 'download' },
-    { text: 'Save Filter', icon: 'save' },
-    {
-      text: 'Load Filter',
-      icon: 'filter',
-      items: this.savedFilters.map(filter => ({ text: filter }))
-    },
-    { text: 'Instructions to Use', icon: 'question' }
-  ];
+  // sidebarMenuItems: MenuItem[] = [
+  //   { text: 'Export Contracts', icon: 'download' },
+  //   { text: 'Save Filter', icon: 'save' },
+  //   {
+  //     text: 'Load Filter',
+  //     icon: 'filter',
+  //     items: this.savedFilters.map(filter => ({ text: filter }))
+  //   },
+  //   { text: 'Instructions to Use', icon: 'question' }
+  // ];
 
   toggleSidebarMenu() {
     this.showSidebarMenu = !this.showSidebarMenu;

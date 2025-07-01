@@ -79,10 +79,10 @@
     }
 
     &.active {
-      background-color: #3b78b4;
+      background-color: #008060;
       color: white;
       font-weight: bold;
-      border-color: #3b78b4;
+      border-color: #008060;
     }
 
     &:disabled {
@@ -249,6 +249,8 @@
   color: #b4b1b1;
   display: inline-block;
   vertical-align: middle;
+  margin-left: 20px;
+  padding-right: 10px;
 }
 
 .three-dots-icon {
@@ -319,4 +321,17 @@ padding-left: 115px!important;
     min-width: 80px;
     font-weight: 500;
   }
+}
+
+::ng-deep .k-list .k-selected,
+::ng-deep .k-list .k-item.k-state-selected,
+::ng-deep .k-list .k-item.k-state-focused,
+::ng-deep .k-list .k-item:hover {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #000 !important;
+}
+
+::ng-deep .k-grid-toolbar {
+
+  background-color: white!important;
 }

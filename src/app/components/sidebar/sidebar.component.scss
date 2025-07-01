@@ -16,7 +16,7 @@
 
 .sidebar-container {
   width: 320px;
-  background-color: #f9f9f9;
+  background-color: #fff;
   padding: 16px;
   height: 100vh;
   overflow-y: auto;
@@ -34,7 +34,7 @@
 
 .sidebar-container {
   width: 320px;
-  background-color: #f9f9f9;
+  background-color: #fff;
   padding: 16px;
   height: 100vh !important;
   overflow-y: auto;
@@ -73,7 +73,7 @@
 
 .contract-tabs {
   display: flex;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
 
   kendo-button {
     flex: 1;
@@ -84,7 +84,7 @@
     border-right: none; // Remove inner borders
     background-color: #f0f0f0;
     color: #333;
-    border-radius: 0;
+    border-radius: 3px;
     margin: 0;
     transition: all 0.2s ease;
 
@@ -93,11 +93,11 @@
       // border-bottom-left-radius: 999px;
     // }
 
-    &:last-child {
+    // &:last-child {
       // border-top-right-radius: 999px;
       // border-bottom-right-radius: 999px;
-      border-right: 1px solid #d1d5db; // restore final right border
-    }
+      // border-right: 1px solid #d1d5db;
+    // }
 
     &.active {
       background-color: #fff;
@@ -116,6 +116,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  padding-top: 20px;
 }
 
 .search-box {
@@ -199,11 +200,14 @@
   // border-radius: 4px;
   cursor: pointer;
   color: #555;
+  border-color: #e4e4e4;
 }
 
 .contract-tabs kendo-button.active {
   background: white;
-  border-color: black;
+  // border-color: black;
+  border-color: rgb(245, 238, 238);
+
   color: black;
 }
 
@@ -423,5 +427,34 @@
   }
 
 
+  .contract-tabs-wrapper {
+    background-color: #edf0ef; // Light gray outer background
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+  }
 
+  .contract-tabs {
+    display: flex;
+    gap: 4px;
 
+    kendo-button {
+      padding: 6px 0px;
+      font-size: 14px;
+      font-weight: 500;
+      background-color: transparent;
+      border: none;
+      color: #666;
+      // border-radius: 8px;
+      transition: all 0.2s ease;
+      min-width: 100px;
+      text-align: center;
+
+      &.active {
+        background-color: white;
+        font-weight: 600;
+        color: #000;
+        box-shadow: 0 0 0 1px #ccc;
+      }
+    }
+  }

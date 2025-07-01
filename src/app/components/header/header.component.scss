@@ -57,12 +57,15 @@
 }
 
 .header-link {
-  color: #d7d1d1;
+  color: #e9e6e6;
   text-decoration: none;
 }
 
 .header-link:hover {
-  text-decoration: underline;
+  // text-decoration: underline;
+  color: #d7d1d1;
+  cursor: pointer;
+
 }
 
 .icon-group {
