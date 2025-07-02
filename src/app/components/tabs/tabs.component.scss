@@ -85,7 +85,7 @@ p {
  .k-tabstrip-items-wrapper .k-item {
   background-color: transparent !important;
   border: none !important;
-  // box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 
@@ -101,12 +101,25 @@ p {
   font-weight: 500;
 }
 
-::ng-deep .k-tabstrip-items-wrapper .k-item.k-state-active .k-link {
-  border-bottom: 3px solid #008060 !important; // ✅ GREEN underline
-  color: #000 !important;
-  font-weight: 600 !important;
+.k-tabstrip-items-wrapper .k-item.k-state-active .k-link {
+  border-bottom: 3px solid #00a86b !important;
+  color: #1a1a1a !important;
+  font-weight: 600;
   padding-bottom: 6px;
+  transition: border-color 0.3s ease;
 }
+
+.k-tabstrip-items-wrapper .k-item:hover .k-link {
+  border-bottom: 3px solid #00a86b;
+}
+
+.k-tabstrip-items-wrapper .k-item.k-state-active .k-link {
+  border-bottom: 3px solid #00a86b !important;
+  color: #1a1a1a !important;
+  font-weight: 600;
+  background-color: transparent;
+}
+
 
 .k-tabstrip-content, .k-tabstrip > .k-content {
   background-color: #f7f7f7;
