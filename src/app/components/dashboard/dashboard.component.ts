@@ -49,10 +49,10 @@ export class DashboardComponent {
   }
 
   expandSidebarFromMini() {
-    this.isSidebarVisible = true;
+    this.isSidebarVisible = !this.isSidebarVisible;
     setTimeout(() => {
       if (this.sidebarRef) {
-        this.sidebarRef.isExpanded = true;
+        this.sidebarRef.isExpanded = this.isSidebarVisible;
       }
     });
   }
