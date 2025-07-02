@@ -489,3 +489,69 @@
       cursor: pointer;
     }
   }
+
+  // .treeview-scroll-container {
+  //   max-height: 475px;
+  //   overflow-y: auto;
+  //   padding-right: 4px;
+  //   position: relative;
+
+  //   scrollbar-width: thin;
+  //   scrollbar-color: #ccc #f5f5f5;
+
+
+  //   &::-webkit-scrollbar {
+  //     width: 6px;
+  //   }
+
+  //   &::-webkit-scrollbar-track {
+  //     background: #f5f5f5;
+  //     border-radius: 6px;
+  //   }
+
+  //   &::-webkit-scrollbar-thumb {
+  //     background-color: #ccc;
+  //     border-radius: 6px;
+  //     transition: background-color 0.2s ease;
+  //   }
+
+
+  //   &:hover::-webkit-scrollbar-thumb {
+  //     background-color: #008060;
+  //   }
+
+  //   &:hover {
+  //     scrollbar-color: #008060 #f5f5f5;
+  //   }
+  // }
+  .treeview-scroll-container {
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 4px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f5f5f5;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f5f5f5;
+      border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    &.scrolling::-webkit-scrollbar-thumb {
+      background-color: #008060;
+    }
+
+    &.scrolling {
+      scrollbar-color: #008060 #f5f5f5;
+    }
+  }

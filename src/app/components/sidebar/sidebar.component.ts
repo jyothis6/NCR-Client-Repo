@@ -43,6 +43,8 @@ selectedDeliveryYears: string[] = [];
 selectedRacYears: string[] = [];
 selectedProjectStatuses: string[] = [];
 showDialog = false;
+isScrolling = false;
+scrollTimeout: any;
 
   @Output() checkedParentsChange = new EventEmitter<string[]>();
   @Output() sidebarClosed = new EventEmitter<void>();
@@ -397,6 +399,18 @@ toggleSidebar() {
     this.onCheckChange();
   }
 
+  onScrollEvent(): void {
+    if (!this.isScrolling) {
+      this.isScrolling = true;
+    }
 
+    // Clear any previous timer
+    clearTimeout(this.scrollTimeout);
+
+    // Reset after 500ms of no scroll
+    this.scrollTimeout = setTimeout(() => {
+      this.isScrolling = false;
+    }, 500);
+  }
 
 }

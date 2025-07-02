@@ -130,6 +130,8 @@
   </div>
 
 
+  <div class="treeview-scroll-container"   [class.scrolling]="isScrolling"
+  (scroll)="onScrollEvent()">
   <kendo-treeview
     [nodes]="filteredData"
     textField="name"
@@ -158,4 +160,5 @@
       </div>
     </ng-template>
   </kendo-treeview>
+</div>
 </div>
